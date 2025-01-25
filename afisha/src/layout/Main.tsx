@@ -4,7 +4,6 @@ import { Search } from '../components/Search.tsx';
 import {Preloader} from "../components/Preloader.tsx";
 
 
-const API_KEY = import.meta.env.VITE_APP_API;
 
 const Main = () => {
     const [movies, setMovies] = useState([]);
@@ -14,7 +13,7 @@ const Main = () => {
 
     const searchMovies = (str, type = 'all') => {
         // setLoading(true);
-        fetch(`https://www.omdbapi.com/?apikey=${API_KEY}&s=${str}${type !== 'all' ? `&type=${type}` : ''}`, {})
+        fetch(`https://www.omdbapi.com/?apikey=90157240&s=${str}${type !== 'all' ? `&type=${type}` : ''}`, {})
             .then((response) => response.json())
             .then((data) => {
                 setMovies(data.Search);
@@ -27,7 +26,7 @@ const Main = () => {
     }
 
     useEffect(() => {
-        fetch(`https://www.omdbapi.com/?apikey=${API_KEY}&s=terminator`)
+        fetch(`https://www.omdbapi.com/?apikey=90157240&s=terminator`)
             .then((response) => response.json())
             .then((data) => {
                 setMovies(data.Search);
