@@ -1,21 +1,26 @@
 import React, {useState} from 'react';
 
-const Search = (props) => {
-    const {searchMovies = Function.prototype} = props;
+interface ISearch {
+    searchMovies: (params: {str: string, filterType: 'all' | 'movie' | 'series' | 'game'}) => void
+    query: string;
+    type: 'all' | 'movie' | 'series' | 'game';
+}
 
-    const [search, setSearch] = useState('');
-    const [type, setType] = useState('all');
+const Search = ({searchMovies, query, type: parentType}: ISearch) => {
+    const [search, setSearch] = useState<string>('');
+    const [type, setType] = useState<'all' | 'movie' | 'series' | 'game'>(parentType || 'all');
 
 
-    const handleKey = (event) => {
+    const handleKey = (event: React.KeyboardEvent<HTMLInputElement>) => {
         if (event.key === 'Enter') {
-            searchMovies(search, type);
+            searchMovies({str: search, filterType: type});
         }
     }
 
-    const handleFilter = (event) => {
-        setType(event.target.dataset.type);
-        searchMovies(search, event.target.dataset.type)
+    const handleFilter = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const filterType = event.target.dataset.type as 'all' | 'movie' | 'series' | 'game';
+        setType(filterType);
+        searchMovies({str: search || query, filterType})
     }
 
 
@@ -27,7 +32,7 @@ const Search = (props) => {
                     className="validate"
                     placeholder="search"
                     type="search"
-                    value={search}
+                    value={search || ''}
                     onChange={(e) =>
                         setSearch(e.target.value)
                     }
@@ -36,7 +41,7 @@ const Search = (props) => {
                 <button
                     className="btn search-btn"
                     onClick={() => {
-                        searchMovies(search, type);
+                        searchMovies({str: search, filterType: type});
                     }}
                 >
                     Поиск
@@ -76,6 +81,18 @@ const Search = (props) => {
                             checked={type === "series"}
                         />
                         <span>Серии</span>
+                    </label>
+
+                    <label>
+                        <input
+                            className="with-gap"
+                            name="type"
+                            type="radio"
+                            data-type="game"
+                            onChange={handleFilter}
+                            checked={type === "game"}
+                        />
+                        <span>Игры</span>
                     </label>
                 </div>
             </div>

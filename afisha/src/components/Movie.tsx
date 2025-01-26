@@ -1,6 +1,8 @@
-import React from 'react';
+// import React from 'react';
+import {IMovie} from "../types/Types.ts";
 
-const Movie = (props) => {
+
+const Movie = (props: IMovie) => {
     const {
         Title: title,
         Year: year,

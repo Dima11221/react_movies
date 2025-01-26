@@ -10,9 +10,9 @@ function App() {
 
     return (
         <React.Fragment>
-            <Header />
+            <Header title='React Movies' />
             <Main/>
-            <Footer/>
+            <Footer text='Repo'/>
         </React.Fragment>
     )
 }

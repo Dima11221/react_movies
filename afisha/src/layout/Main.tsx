@@ -1,22 +1,36 @@
-import React, {useEffect, useState} from 'react';
+import {useEffect, useState} from 'react';
 import { Movies } from '../components/Movies.tsx';
 import { Search } from '../components/Search.tsx';
 import {Preloader} from "../components/Preloader.tsx";
+import {IMovie} from "../types/Types.ts";
 
+interface IProps {
+    str: string;
+    filterType: 'all' | 'movie' | 'series' | 'game';
+}
 
+interface IApiResponse {
+    Search?: IMovie[];
+    totalResults: string;
+    Response: string;
+    Error?: string;
+}
 
 const Main = () => {
-    const [movies, setMovies] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const [movies, setMovies] = useState<IMovie[]>([]);
+    const [loading, setLoading] = useState<boolean>(true);
+    const [type, setType] = useState<'all' | 'movie' | 'series' | 'game'>("all");
+    const [query, setQuery] = useState<string>("terminator");
 
 
 
-    const searchMovies = (str, type = 'all') => {
-        // setLoading(true);
-        fetch(`https://www.omdbapi.com/?apikey=90157240&s=${str}${type !== 'all' ? `&type=${type}` : ''}`, {})
+    const fetchMovies = (params: IProps) => {
+        const {str = 'terminator', filterType = 'all'} = params;
+        setLoading(true);
+        fetch(`https://www.omdbapi.com/?apikey=90157240&s=${str}${filterType !== 'all' ? `&type=${filterType}` : ''}`, {})
             .then((response) => response.json())
-            .then((data) => {
-                setMovies(data.Search);
+            .then((data: IApiResponse) => {
+                setMovies(data.Search || []);
                 setLoading(false);
             })
             .catch((error) => {
@@ -25,31 +39,25 @@ const Main = () => {
             });
     }
 
+    const searchMovies = ({str, filterType}:IProps) => {
+        setQuery(str)
+        setType(filterType);
+        fetchMovies({str, filterType});
+    }
+
     useEffect(() => {
-        fetch(`https://www.omdbapi.com/?apikey=90157240&s=terminator`)
-            .then((response) => response.json())
-            .then((data) => {
-                setMovies(data.Search);
-                setLoading(false);
-            })
-            .catch((error) => {
-                console.log(error);
-                setLoading(false);
-            });
-        }, []);
-
-
-
+        fetchMovies({str: query, filterType: type})
+    }, [query, type]);
 
 
 
     return (
         <main className="container content">
-            <Search searchMovies={searchMovies}/>
+            <Search searchMovies={searchMovies} type={type} query={query} />
             {
                 loading ? (
                     <Preloader />
-                ) : <Movies movies={movies} searchMovies={searchMovies} />
+                ) : <Movies movies={movies} />
             }
         </main>
     );
