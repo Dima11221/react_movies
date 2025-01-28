@@ -1,8 +1,8 @@
 import React from "react";
-import {Header} from "./layout/Header.tsx";
+import {Header} from "./layout/Header/Header.tsx";
 import {Footer} from "./layout/Footer.tsx";
 import {Main} from "./layout/Main.tsx";
-import './App.css'
+import './styles/App.css'
 
 
 function App() {

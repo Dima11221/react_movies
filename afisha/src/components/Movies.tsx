@@ -18,7 +18,7 @@ const Movies = (props: IMovies) => {
                 movies.map((movie) => (
                     <Movie key={movie.imdbID} {...movie}
                     />
-                )) : (<h4>Nothing was found.</h4>)}
+                )) : (<h4>Ничего не нашлось, либо вы ввели название неправильно</h4>)}
         </div>
     );
 }
