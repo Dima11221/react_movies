@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import style from './style.module.scss'
 
 interface ISearch {
     searchMovies: (params: {str: string, filterType: 'all' | 'movie' | 'series' | 'game'}) => void
@@ -26,11 +27,11 @@ const Search = ({searchMovies, query, type: parentType}: ISearch) => {
 
     return (
 
-        <div className="row">
-            <div className="input-field">
+        <div className={style.row}>
+            <div className={style.inputField}>
                 <input
-                    className="validate"
-                    placeholder="search"
+                    className={`${style.inputField} ${style.inputStyle}`}
+                    placeholder="Поиск"
                     type="search"
                     value={search || ''}
                     onChange={(e) =>
@@ -39,60 +40,60 @@ const Search = ({searchMovies, query, type: parentType}: ISearch) => {
                     onKeyDown={handleKey}
                 />
                 <button
-                    className="btn search-btn"
+                    className={`${style.btn} ${style.searchBtn} ${style.btnReset}`}
                     onClick={() => {
                         searchMovies({str: search, filterType: type});
                     }}
                 >
                     Поиск
                 </button>
-                <div className='radio_buttons'>
-                    <label>
+                <div className={`${style.flex} ${style.btnsBox}`}>
+                    <label className={`${style.withGap} ${style.radioButtonsStandart}`}>
                         <input
-                            className="with-gap"
+                            // className={`${style.radioButtonsStandart}`}
                             name="type"
                             type="radio"
                             data-type="all"
                             onChange={handleFilter}
                             checked={type === "all"}
                         />
-                        <span>Все</span>
+                        <span className={style.span}>Все</span>
                     </label>
 
-                    <label>
+                    <label className={`${style.withGap} ${style.radioButtonsStandart}`}>
                         <input
-                            className="with-gap"
+                            // className={`${style.radioButtonsStandart}`}
                             name="type"
                             type="radio"
                             data-type="movie"
                             onChange={handleFilter}
                             checked={type === "movie"}
                         />
-                        <span>Фильмы</span>
+                        <span className={style.span}>Только фильмы</span>
                     </label>
 
-                    <label>
+                    <label className={`${style.withGap} ${style.radioButtonsStandart}`}>
                         <input
-                            className="with-gap"
+                            // className={`${style.radioButtonsStandart}`}
                             name="type"
                             type="radio"
                             data-type="series"
                             onChange={handleFilter}
                             checked={type === "series"}
                         />
-                        <span>Серии</span>
+                        <span className={style.span}>Только серии</span>
                     </label>
 
-                    <label>
+                    <label className={`${style.withGap} ${style.radioButtonsStandart}`}>
                         <input
-                            className="with-gap"
+                            // className={`${style.radioButtonsStandart}`}
                             name="type"
                             type="radio"
                             data-type="game"
                             onChange={handleFilter}
                             checked={type === "game"}
                         />
-                        <span>Игры</span>
+                        <span className={style.span}>Только игры</span>
                     </label>
                 </div>
             </div>

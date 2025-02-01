@@ -1,11 +1,12 @@
 import {useEffect, useState} from 'react';
-import { Movies } from '../components/Movies.tsx';
-import { Search } from '../components/Search.tsx';
-import {Preloader} from "../components/Preloader.tsx";
+import { Movies } from '../../components/Movies/Movies.tsx';
+import { Search } from '../../components/Search/Search.tsx';
+import {Preloader} from "../../components/Preloader/Preloader.tsx";
 // import {IMovie} from "../types/Types.ts";
-import {fetchMovies} from "../store/reducers/thunk.ts";
+import {fetchMovies} from "../../store/reducers/thunk.ts";
 import {useDispatch, useSelector} from "react-redux";
-import {AppDispatch, RootState} from "../store/store.ts";
+import {AppDispatch, RootState} from "../../store/store.ts";
+import style from './style.module.scss'
 
 interface IProps {
     str: string;
@@ -24,7 +25,7 @@ const Main = () => {
     // const [loading, setLoading] = useState<boolean>(true);
     const {movies, loading} = useSelector((state: RootState) => state.movies);
     const [type, setType] = useState<'all' | 'movie' | 'series' | 'game'>("all");
-    const [query, setQuery] = useState<string>("terminator");
+    const [query, setQuery] = useState<string>("matrix");
 
     const dispatch = useDispatch<AppDispatch>();
 
@@ -56,16 +57,18 @@ const Main = () => {
         // fetchMovies({str: query, filterType: type})
     }, [query, type, dispatch]);
 
-
-
+    // console.log(fetchMovies)
+    // console.log("Loading state:", loading);
     return (
-        <main className="container content">
-            <Search searchMovies={searchMovies} type={type} query={query} />
-            {
-                loading ? (
-                    <Preloader />
-                ) : <Movies movies={movies} />
-            }
+        <main className={style.mainWrapper}>
+            <div>
+                <Search searchMovies={searchMovies} type={type} query={query} />
+                {
+                    loading ? (
+                        <Preloader />
+                    ) : <Movies movies={movies} />
+                }
+            </div>
         </main>
     );
 

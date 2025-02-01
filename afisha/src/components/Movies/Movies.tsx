@@ -1,7 +1,8 @@
 // import React from 'react';
 // import {Movie} from './Movie.js';
-import {Movie} from "./Movie.tsx";
-import {IMovie} from "../types/Types.ts";
+import {Movie} from "../Movie/Movie.tsx";
+import {IMovie} from "../../types/Types.ts";
+import style from './style.module.scss'
 // import PropTypes from "prop-types";
 
 
@@ -13,7 +14,7 @@ const Movies = (props: IMovies) => {
     const { movies = []} = props;
 
     return (
-        <div className="movies">
+        <div className={`${style.movieList} ${style.flex}`}>
             {movies.length ?
                 movies.map((movie) => (
                     <Movie key={movie.imdbID} {...movie}
