@@ -30,8 +30,8 @@ const Search = ({searchMovies, query, type: parentType}: ISearch) => {
         <div className={style.row}>
             <div className={style.inputField}>
                 <input
-                    className={`${style.inputField} ${style.inputStyle}`}
-                    placeholder="Поиск"
+                    className={`${style.inputStyle}`}
+                    placeholder="Search"
                     type="search"
                     value={search || ''}
                     onChange={(e) =>
@@ -45,7 +45,7 @@ const Search = ({searchMovies, query, type: parentType}: ISearch) => {
                         searchMovies({str: search, filterType: type});
                     }}
                 >
-                    Поиск
+                    Search
                 </button>
                 <div className={`${style.flex} ${style.btnsBox}`}>
                     <label className={`${style.withGap} ${style.radioButtonsStandart}`}>
@@ -57,7 +57,7 @@ const Search = ({searchMovies, query, type: parentType}: ISearch) => {
                             onChange={handleFilter}
                             checked={type === "all"}
                         />
-                        <span className={style.span}>Все</span>
+                        <span className={style.span}>All</span>
                     </label>
 
                     <label className={`${style.withGap} ${style.radioButtonsStandart}`}>
@@ -69,7 +69,7 @@ const Search = ({searchMovies, query, type: parentType}: ISearch) => {
                             onChange={handleFilter}
                             checked={type === "movie"}
                         />
-                        <span className={style.span}>Только фильмы</span>
+                        <span className={style.span}>Movie</span>
                     </label>
 
                     <label className={`${style.withGap} ${style.radioButtonsStandart}`}>
@@ -81,7 +81,7 @@ const Search = ({searchMovies, query, type: parentType}: ISearch) => {
                             onChange={handleFilter}
                             checked={type === "series"}
                         />
-                        <span className={style.span}>Только серии</span>
+                        <span className={style.span}>Series</span>
                     </label>
 
                     <label className={`${style.withGap} ${style.radioButtonsStandart}`}>
@@ -93,7 +93,7 @@ const Search = ({searchMovies, query, type: parentType}: ISearch) => {
                             onChange={handleFilter}
                             checked={type === "game"}
                         />
-                        <span className={style.span}>Только игры</span>
+                        <span className={style.span}>Game</span>
                     </label>
                 </div>
             </div>

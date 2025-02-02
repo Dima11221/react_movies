@@ -2,30 +2,25 @@ import {useEffect, useState} from 'react';
 import { Movies } from '../../components/Movies/Movies.tsx';
 import { Search } from '../../components/Search/Search.tsx';
 import {Preloader} from "../../components/Preloader/Preloader.tsx";
-// import {IMovie} from "../types/Types.ts";
 import {fetchMovies} from "../../store/reducers/thunk.ts";
 import {useDispatch, useSelector} from "react-redux";
 import {AppDispatch, RootState} from "../../store/store.ts";
 import style from './style.module.scss'
+import {Pages} from "../../components/Pages/Pages.tsx";
 
-interface IProps {
+interface IFilterProps {
     str: string;
     filterType: 'all' | 'movie' | 'series' | 'game';
 }
 
-// interface IApiResponse {
-//     Search?: IMovie[];
-//     totalResults: string;
-//     Response: string;
-//     Error?: string;
-// }
 
 const Main = () => {
     // const [movies, setMovies] = useState<IMovie[]>([]);
     // const [loading, setLoading] = useState<boolean>(true);
-    const {movies, loading} = useSelector((state: RootState) => state.movies);
+    const {movies, loading, totalResults} = useSelector((state: RootState) => state.movies);
     const [type, setType] = useState<'all' | 'movie' | 'series' | 'game'>("all");
     const [query, setQuery] = useState<string>("matrix");
+    const [page, setPage] = useState<number>(1);
 
     const dispatch = useDispatch<AppDispatch>();
 
@@ -46,17 +41,21 @@ const Main = () => {
     //         });
     // }
 
-    const searchMovies = ({str, filterType}:IProps) => {
+    const searchMovies = ({str, filterType}:IFilterProps) => {
         setQuery(str)
         setType(filterType);
+        setPage(1);
+        dispatch(fetchMovies(str, filterType, 1))
         // fetchMovies({str, filterType});
     }
 
     useEffect(() => {
-        dispatch(fetchMovies(query, type))
+        dispatch(fetchMovies(query, type, page))
         // fetchMovies({str: query, filterType: type})
-    }, [query, type, dispatch]);
+    }, [query, type, page, dispatch]);
 
+    // console.log(totalResults)
+    // console.log(page)
     // console.log(fetchMovies)
     // console.log("Loading state:", loading);
     return (
@@ -66,7 +65,13 @@ const Main = () => {
                 {
                     loading ? (
                         <Preloader />
-                    ) : <Movies movies={movies} />
+                    ) : (
+                        <>
+                            <Movies movies={movies}/>
+                            <Pages page={page} setPage={setPage} loading={loading} totalResults={totalResults} />
+                        </>
+
+                    )
                 }
             </div>
         </main>
@@ -74,4 +79,4 @@ const Main = () => {
 
 }
 
-export { Main }
+export {Main}

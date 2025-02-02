@@ -1,17 +1,18 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { IMovie } from "../../types/Types.ts";
-// import {fetchMovies} from "./thunk.ts";
 
 interface MovieState {
     movies: IMovie[];
     loading: boolean;
     error: string | null;
+    totalResults: number;
 }
 
 const initialState: MovieState = {
     movies: [],
     loading: false,
     error: null,
+    totalResults: 0,
 };
 
 
@@ -23,41 +24,21 @@ const movieSlice = createSlice({
             state.loading = true;
             state.error = null;
         },
-        fetchMoviesSuccess: (state, action: PayloadAction<IMovie[]>) => {
+        fetchMoviesSuccess: (state, action: PayloadAction<{ movies: IMovie[], totalResults: number }>) => {
             state.loading = false;
-            state.movies = action.payload;
+            state.movies = action.payload.movies;
+            state.totalResults = action.payload.totalResults;
         },
         fetchMoviesFailure: (state, action: PayloadAction<string>) => {
             state.loading = false;
             state.movies = [];
+            state.totalResults = 0;
             state.error = action.payload;
         }
     },
 
 });
 
-// const movieSlice = createSlice({
-//     name: 'movies',
-//     initialState,
-//     reducers: {},
-//     extraReducers: (builder) => {
-//         builder
-//             .addCase(fetchMovies.pending, (state) => {
-//                 state.loading = true;
-//                 state.error = null;
-//             })
-//             .addCase(fetchMovies.fulfilled, (state, action) => {
-//                 state.loading = false;
-//                 state.movies = action.payload;
-//             })
-//             .addCase(fetchMovies.rejected, (state, action) => {
-//                 state.loading = false;
-//                 state.error = action.payload;
-//             })
-//     }
-//
-//
-// });
 
 export const {fetchMoviesStart, fetchMoviesSuccess, fetchMoviesFailure} = movieSlice.actions;
 export const movieReducer = movieSlice.reducer;

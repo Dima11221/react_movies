@@ -11,7 +11,7 @@ function App() {
 
     return (
         <React.Fragment>
-            <Header title='React Movies' />
+            <Header title='OMDb Movies' />
             <Main/>
             <Footer text='GitHub page'/>
         </React.Fragment>

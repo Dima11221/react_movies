@@ -8,8 +8,8 @@
 
 .inputField {
   position: relative;
-  margin-top: 16px;
-  margin-bottom: 16px;
+  margin-top: 24px;
+  margin-bottom: 24px;
 }
 
 .searchBtn {
@@ -41,11 +41,11 @@
   cursor: pointer;
 }
 
-.inputField {
-  display: block;
-  line-height: inherit;
-  transition: .3s background-color;
-}
+//.inputField {
+//  display: block;
+//  line-height: inherit;
+//  transition: .3s background-color;
+//}
 
 .inputStyle {
   background-color: transparent;
