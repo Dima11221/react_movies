@@ -19,7 +19,7 @@ const Main = () => {
     // const [loading, setLoading] = useState<boolean>(true);
     const {movies, loading, totalResults} = useSelector((state: RootState) => state.movies);
     const [type, setType] = useState<'all' | 'movie' | 'series' | 'game'>("all");
-    const [query, setQuery] = useState<string>("matrix");
+    const [query, setQuery] = useState<string>("movie");
     const [page, setPage] = useState<number>(1);
 
     const dispatch = useDispatch<AppDispatch>();

@@ -21,14 +21,14 @@ const Pages = ({page, setPage, loading, totalResults}: IPages) => {
     return (
         <div className={style.buttonsPos}>
             <button
-                className={`${style.btn} ${style.btnReset}`}
+                className={`${style.btn} ${style.btnReset} ${style.btnPage}`}
                 onClick={handlePreviousPage}
                 disabled={loading || page === 1}
             >
                 <span>Previous page</span>
             </button>
             <button
-                className={`${style.btn} ${style.btnReset}`}
+                className={`${style.btn} ${style.btnReset} ${style.btnPage}`}
                 onClick={handleNextPage}
                 disabled={loading || page * 10 >= totalResults}
             >

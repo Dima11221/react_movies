@@ -3,6 +3,9 @@
 
 .mainWrapper {
   max-width: 1080px;
+  //min-height: 1850px;
+  //min-height: calc(100vh - 158px);
+  min-height: 100vh;
   margin: 0 auto;
 }
 

@@ -14,7 +14,7 @@ const Movies = (props: IMovies) => {
     const { movies = []} = props;
 
     return (
-        <div className={`${style.movieList} ${style.flex}`}>
+        <div className={`${style.movieList} `}>
             {movies.length ?
                 movies.map((movie) => (
                     <Movie key={movie.imdbID} {...movie}

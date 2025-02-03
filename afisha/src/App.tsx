@@ -11,9 +11,11 @@ function App() {
 
     return (
         <React.Fragment>
-            <Header title='OMDb Movies' />
-            <Main/>
-            <Footer text='GitHub page'/>
+            <div style={{height:'100%'}}>
+                <Header title='OMDb Movies' />
+                <Main/>
+                <Footer text='GitHub page'/>
+            </div>
         </React.Fragment>
     )
 }
