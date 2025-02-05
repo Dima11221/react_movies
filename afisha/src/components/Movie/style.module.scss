@@ -31,3 +31,26 @@
 .title {
 
 }
+
+.movieDetails {
+  transition: opacity 0.5s ease, max-height 0.5s ease, transform 0.5s ease;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+}
+
+.visible {
+  opacity: 1;
+  max-height: 500px;
+  transform: translateY(0);
+}
+
+.hidden {
+  opacity: 0;
+  max-height: 0;
+  transform: translateY(-20px);
+}
+
+.detail {
+  padding-bottom: 16px;
+}

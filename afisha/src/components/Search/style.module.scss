@@ -18,35 +18,6 @@
   right: 4px;
 }
 
-.btn {
-  border: none;
-  border-radius: 2px;
-  display: inline-block;
-  height: 36px;
-  line-height: 36px;
-  padding: 0 16px;
-  text-transform: uppercase;
-  vertical-align: middle;
-  -webkit-tap-highlight-color: transparent;
-  transition: background-color .2s ease-out;
-  color: var(--white);
-  background-color: var(--blue-color);
-}
-
-.btn:hover {
-  text-decoration: none;
-  color: var(--white);
-  background-color: var(--light-blue-color);
-  text-align: center;
-  cursor: pointer;
-}
-
-//.inputField {
-//  display: block;
-//  line-height: inherit;
-//  transition: .3s background-color;
-//}
-
 .inputStyle {
   background-color: transparent;
   color: var(--grey);

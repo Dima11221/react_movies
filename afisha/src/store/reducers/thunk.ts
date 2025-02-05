@@ -1,17 +1,12 @@
 // import {createAsyncThunk} from "@reduxjs/toolkit";
 import {AppDispatch} from "../store.ts";
-import {fetchMoviesSuccess, fetchMoviesFailure, fetchMoviesStart} from "./movieReducer.ts";
+import {fetchMoviesSuccess, fetchMoviesFailure, fetchMoviesStart, setMovieDetails} from "./movieReducer.ts";
 // import {IMovie} from "../../types/Types.ts";
+import {IMovieDetails} from "../../components/Movie/Movie.tsx";
+// import {createAsyncThunk} from "@reduxjs/toolkit";
 
 
-// interface IApiResponse {
-//     Search?: IMovie[];
-//     totalResults?: string;
-//     Response: 'True' | 'False';
-//     Error?: string;
-// }
-
-export const fetchMovies = (query: string, type: string, page: number) => async (dispatch: AppDispatch) => {
+export const fetchMovies = (query: string, type: string, page: number, append = false ) => async (dispatch: AppDispatch) => {
     dispatch(fetchMoviesStart());
 
     try {
@@ -22,7 +17,10 @@ export const fetchMovies = (query: string, type: string, page: number) => async 
         if (data.Response === 'True' && data.Search) {
             dispatch(fetchMoviesSuccess({
                 movies: data.Search,
-                totalResults: parseInt(data.totalResults || '0', 10)}))
+                totalResults: parseInt(data.totalResults || '0', 10),
+                append,
+            }));
+
         } else {
             dispatch(fetchMoviesFailure(data.Error) || 'Nothing was found.')
         }
@@ -31,35 +29,50 @@ export const fetchMovies = (query: string, type: string, page: number) => async 
         dispatch(fetchMoviesFailure('Network error'));
     }
 
-
-
-    // try {
-    //
-    //     let allMovies: IMovie[] = [];
-    //     let page = 1;
-    //     let totalResults = 0;
-    //
-    //     do {
-    //         const response = await fetch(`https://www.omdbapi.com/?apikey=90157240&s=${query}${type !== 'all' ? `&type=${type}` : ''}&page=${page}`);
-    //         const data: IApiResponse = await response.json();
-    //
-    //         if (data.Response === "True") {
-    //             if (page === 1) {
-    //                 totalResults = Math.min(1000, parseInt(data.totalResults || '0', 10));
-    //             }
-    //             allMovies = [...allMovies, ...data.Search ?? []];
-    //
-    //
-    //             } else {
-    //                 break;
-    //             }
-    //         page++;
-    //
-    //     } while (allMovies.length < totalResults && page <= 100);
-    //
-    //     dispatch(fetchMoviesSuccess(allMovies));
-    //
-    // } catch (error) {
-    //     dispatch(fetchMoviesFailure('Network Error'));
-    // }
 };
+
+export const fetchMovieDetails = (id: string) => async (dispatch: AppDispatch) => {
+    try {
+        const response = await fetch(`https://www.omdbapi.com/?apikey=90157240&i=${id}&plot=short`);
+        const data:{Response: string, Plot?: string, imdbRating?: string, Rated?: string, Error?: string} = await response.json();
+
+        if (data.Response === 'True') {
+            const movieDetails: IMovieDetails ={
+                Plot: data.Plot || '',
+                imdbRating: data.imdbRating || '',
+                Rated: data.Rated,
+            };
+            dispatch(setMovieDetails({id, details: movieDetails}));
+        } else {
+            // dispatch(setMovieDetails('Error fetching details'));
+            dispatch(setMovieDetails({id, details: null}));
+        }
+    } catch (error) {
+        // dispatch(setMovieDetails('Network error'));
+        dispatch(setMovieDetails({id, details: null}))
+    }
+}
+
+// export const fetchMovieDetails = createAsyncThunk(
+//     'movies/fetchMovieDetails',
+//     async (id: string, {dispatch}) => {
+//         try {
+//             const response = await fetch(`https://www.omdbapi.com/?apikey=90157240&i=${id}&plot=short`);
+//             const data:{Response: string, Plot?: string, imdbRating?: string, Error?: string} = await response.json();
+//
+//             if (data.Response === 'True') {
+//                 const movieDetails: IMovieDetails ={
+//                     Plot: data.Plot || '',
+//                     imdbRating: data.imdbRating || '',
+//                 };
+//                 dispatch(setMovieDetails({id, details: movieDetails}));
+//             } else {
+//                 // dispatch(setMovieDetails('Error fetching details'));
+//                 dispatch(setMovieDetails({id, details: null}));
+//             }
+//         } catch (error) {
+//             // dispatch(setMovieDetails('Network error'));
+//             dispatch(setMovieDetails({id, details: null}))
+//         }
+//     });
+

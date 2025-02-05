@@ -50,7 +50,7 @@ const Main = () => {
     }
 
     useEffect(() => {
-        dispatch(fetchMovies(query, type, page))
+        dispatch(fetchMovies(query, type, page, page > 1))
         // fetchMovies({str: query, filterType: type})
     }, [query, type, page, dispatch]);
 

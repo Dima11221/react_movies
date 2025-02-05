@@ -5,3 +5,9 @@ export interface IMovie {
     Type: string,
     Poster: string,
 }
+
+export interface IMovieDetails {
+    Plot?: string;
+    imdbRating?: string
+    Rated?: string
+}
