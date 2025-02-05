@@ -77,16 +77,16 @@ const Movie = (props: IMovie) => {
                 <h3 className={style.title}>{title}</h3>
                 <p>{year} <span className=''>{type}</span></p>
 
-                <button className={style.btn} onClick={handleClick} disabled={loading}>
-                    {loading ? 'Loading...' : 'More details'}
+                <button className={`${style.btn} ${style.infoBtn}`} onClick={handleClick} disabled={loading}>
+                    {loading ? 'Загрузка...' : 'Подробнее'}
                 </button>
 
                 <div className={`${style.movieDetails} ${isVisible ? `${style.visible}` : `${style.hidden}`}`}>
                     {details && (
                         <div className=''>
                             <p>Рейтинг IMDb: {details.imdbRating ?? 'N/A'}</p>
-                            <p>Возрастная категория: {details.Rated ?? 'No information...'}</p>
-                            <p className={style.detail}>Сюжет: {details.Plot ?? 'No information...'}</p>
+                            <p>Возрастная категория: {details.Rated ?? 'Ничего не найдено...'}</p>
+                            <p className={style.detail}>Сюжет: {details.Plot ?? 'Ничего не найдено...'}</p>
                         </div>
                     )}
                     {error && (<p>{error}</p>)}
