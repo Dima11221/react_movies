@@ -2,7 +2,7 @@
 import {AppDispatch} from "../store.ts";
 import {fetchMoviesSuccess, fetchMoviesFailure, fetchMoviesStart, setMovieDetails} from "./movieReducer.ts";
 // import {IMovie} from "../../types/Types.ts";
-import {IMovieDetails} from "../../components/Movie/Movie.tsx";
+import { IMovieDetails } from "../../types/Types.ts";
 // import {createAsyncThunk} from "@reduxjs/toolkit";
 
 
