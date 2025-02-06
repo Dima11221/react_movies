@@ -75,9 +75,14 @@ const Movie = (props: IMovie) => {
                     {loading ? 'Загрузка...' : 'Подробнее'}
                 </button>
 
-                <div className={`${style.movieDetails} ${isVisible ? `${style.visible}` : `${style.hidden}`}`}>
+                <div className={
+                    `${style.movieDetails} 
+                    ${isVisible && `${style.visible}`} 
+                    ${!isVisible && `${style.hidden}`}
+                    `}>
+
                     {details && (
-                        <div className=''>
+                        <div className={style.flex}>
                             <p>Рейтинг IMDb: {details.imdbRating ?? 'N/A'}</p>
                             <p>Возрастная категория: {details.Rated ?? 'Ничего не найдено...'}</p>
                             <p className={style.detail}>Сюжет: {details.Plot ?? 'Ничего не найдено...'}</p>
@@ -85,6 +90,7 @@ const Movie = (props: IMovie) => {
                     )}
                     {error && (<p>{error}</p>)}
                 </div>
+
 
             </div>
 

@@ -46,7 +46,7 @@ const Search = ({searchMovies, query, type: parentType}: ISearch) => {
                         searchMovies({query: search, filterType: type});
                     }}
                 >
-                    Search
+                    Поиск
                 </button>
 
                 <FilterType type={type} handleFilter={handleFilter} />
