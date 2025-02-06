@@ -1,8 +1,9 @@
-import React, {useState} from 'react';
+import {KeyboardEvent, ChangeEvent, useState} from 'react';
 import style from './style.module.scss'
+import {FilterType} from "../FilterType/FilterType.tsx";
 
-interface ISearch {
-    searchMovies: (params: {str: string, filterType: 'all' | 'movie' | 'series' | 'game'}) => void
+export interface ISearch {
+    searchMovies: (params: {query: string, filterType: 'all' | 'movie' | 'series' | 'game'}) => void
     query: string;
     type: 'all' | 'movie' | 'series' | 'game';
 }
@@ -12,16 +13,16 @@ const Search = ({searchMovies, query, type: parentType}: ISearch) => {
     const [type, setType] = useState<'all' | 'movie' | 'series' | 'game'>(parentType || 'all');
 
 
-    const handleKey = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    const handleKey = (event: KeyboardEvent<HTMLInputElement>) => {
         if (event.key === 'Enter') {
-            searchMovies({str: search, filterType: type});
+            searchMovies({query: search, filterType: type});
         }
     }
 
-    const handleFilter = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const handleFilter = (event: ChangeEvent<HTMLInputElement>) => {
         const filterType = event.target.dataset.type as 'all' | 'movie' | 'series' | 'game';
         setType(filterType);
-        searchMovies({str: search || query, filterType})
+        searchMovies({query: search || query, filterType})
     }
 
 
@@ -42,60 +43,13 @@ const Search = ({searchMovies, query, type: parentType}: ISearch) => {
                 <button
                     className={`${style.btn} ${style.searchBtn} ${style.btnReset}`}
                     onClick={() => {
-                        searchMovies({str: search, filterType: type});
+                        searchMovies({query: search, filterType: type});
                     }}
                 >
                     Search
                 </button>
-                <div className={`${style.flex} ${style.btnsBox}`}>
-                    <label className={`${style.withGap} ${style.radioButtonsStandart}`}>
-                        <input
-                            // className={`${style.radioButtonsStandart}`}
-                            name="type"
-                            type="radio"
-                            data-type="all"
-                            onChange={handleFilter}
-                            checked={type === "all"}
-                        />
-                        <span className={style.span}>All</span>
-                    </label>
 
-                    <label className={`${style.withGap} ${style.radioButtonsStandart}`}>
-                        <input
-                            // className={`${style.radioButtonsStandart}`}
-                            name="type"
-                            type="radio"
-                            data-type="movie"
-                            onChange={handleFilter}
-                            checked={type === "movie"}
-                        />
-                        <span className={style.span}>Movie</span>
-                    </label>
-
-                    <label className={`${style.withGap} ${style.radioButtonsStandart}`}>
-                        <input
-                            // className={`${style.radioButtonsStandart}`}
-                            name="type"
-                            type="radio"
-                            data-type="series"
-                            onChange={handleFilter}
-                            checked={type === "series"}
-                        />
-                        <span className={style.span}>Series</span>
-                    </label>
-
-                    <label className={`${style.withGap} ${style.radioButtonsStandart}`}>
-                        <input
-                            // className={`${style.radioButtonsStandart}`}
-                            name="type"
-                            type="radio"
-                            data-type="game"
-                            onChange={handleFilter}
-                            checked={type === "game"}
-                        />
-                        <span className={style.span}>Game</span>
-                    </label>
-                </div>
+                <FilterType type={type} handleFilter={handleFilter} />
             </div>
         </div>
     );

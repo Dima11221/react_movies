@@ -6,7 +6,7 @@ interface IProps {
 }
 
 const Footer = ({text}:IProps) => {
-    return <footer className={`${style.nav} ${style.footer}`}>
+    return <footer className={`${style.headFoot} ${style.footer}`}>
         <div className={style.footerWrapper}>
             <div className={`${style.container} ${style.flex} ${style.footerItems}`}>
                 <span>© {new Date().getFullYear()}</span>

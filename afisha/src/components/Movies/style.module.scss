@@ -1,10 +1,12 @@
-@import "../../styles/globals";
+@use "../../styles/globals";
+
 
 .movieList {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  justify-items: center;
-  margin-bottom: 36px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: baseline;
   gap: 10px;
 }
 

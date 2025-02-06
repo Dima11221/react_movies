@@ -1,6 +1,7 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 import { IMovie } from "../../types/Types.ts";
 import { IMovieDetails } from "../../types/Types.ts";
+import {fetchMovieDetails, fetchMovies} from "./thunk.ts";
 
 interface MovieState {
     movies: IMovie[];
@@ -19,46 +20,52 @@ const initialState: MovieState = {
 
 };
 
-// interface IMovieDetails {
-//     Plot?: string;
-//     imdbRating?: string
-//     Rated?: string
-// }
 
 const movieSlice = createSlice({
     name: 'movies',
     initialState,
-    reducers: {
-        fetchMoviesStart: (state) => {
-            state.loading = true;
-            state.error = null;
-        },
-        fetchMoviesSuccess: (state, action: PayloadAction<{ movies: IMovie[], totalResults: number, append: boolean }>) => {
-            state.loading = false;
-            state.movies = action.payload.movies;
-            state.totalResults = action.payload.totalResults;
+    reducers: {},
+    extraReducers: (builder) => {
+            builder
+                .addCase(fetchMovies.pending, (state) => {
+                    state.loading = true;
+                    state.error = null;
+                })
 
-            if (action.payload.append) {
-                state.movies = [...state.movies, ...action.payload.movies];
-            } else {
-                state.movies = action.payload.movies;
-            }
-        },
-        fetchMoviesFailure: (state, action: PayloadAction<string>) => {
-            state.loading = false;
-            state.movies = [];
-            state.totalResults = 0;
-            state.error = action.payload;
-        },
-        setMovieDetails: (state, action: PayloadAction<{ id: string, details: IMovieDetails | null }>) => {
-            const { id, details } = action.payload;
-            state.movieDetails[id] = details;
-        }
+                .addCase(fetchMovies.fulfilled, (state, action) => {
+                    state.loading = false;
+                    state.movies = action.payload.movies;
+                    state.totalResults = action.payload.totalResults;
 
-    },
+                    if (action.payload.append) {
+                        state.movies = [...state.movies, ...action.payload.movies];
+                    } else {
+                        state.movies = action.payload.movies;
+                    }
+                    state.movies = action.payload.movies;
+                })
+                .addCase(fetchMovies.rejected, (state, action) => {
+                    state.loading = false;
+                    state.movies = [];
+                    state.totalResults = 0;
+                    state.error = action.payload as string;
+                })
+
+            builder
+                .addCase(fetchMovieDetails.pending, (state) => {
+                    state.error = null
+                })
+                .addCase(fetchMovieDetails.fulfilled, (state, action) => {
+                    state.movieDetails[action.payload.id] = action.payload.details;
+                })
+                .addCase(fetchMovieDetails.rejected, (state, action) => {
+                    state.error = action.payload as string
+                })
+
+        },
 
 });
 
 
-export const {fetchMoviesStart, fetchMoviesSuccess, fetchMoviesFailure, setMovieDetails} = movieSlice.actions;
+
 export const movieReducer = movieSlice.reducer;

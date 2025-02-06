@@ -1,19 +1,13 @@
-// import React from 'react';
 import {IMovie} from "../../types/Types.ts";
-// import { IMovieDetails } from "../../types/Types.ts";
 import style from './style.module.scss'
 import {useState} from "react";
-// import App from "../../App.tsx";
 import {AppDispatch, RootState} from "../../store/store.ts";
 import { useDispatch, useSelector } from "react-redux";
 import {fetchMovieDetails} from "../../store/reducers/thunk.ts";
 
 
-// export interface IMovieDetails {
-//     Plot?: string;
-//     imdbRating?: string;
-//     Rated?: string;
-// }
+const getSelector = ((state: RootState) => state.movies);
+
 
 const Movie = (props: IMovie) => {
     const {
@@ -26,12 +20,11 @@ const Movie = (props: IMovie) => {
 
 
     const dispatch = useDispatch<AppDispatch>();
-    const { movieDetails, loading, error } = useSelector((state: RootState) => state.movies);
     const [isVisible, setIsVisible] = useState(false);
+    const { movieDetails, loading, error } = useSelector(getSelector);
 
 
     const details = movieDetails[id];
-    // console.log(details)
 
     const fetchDetails = async (): Promise<void> => {
         dispatch(fetchMovieDetails(id))
@@ -50,11 +43,9 @@ const Movie = (props: IMovie) => {
 
 
     const handleClick = () => {
-        // console.log('hi1')
         fetchDetails()
             .then(() => {
                 toggleVisibility();
-                // console.log('hi2')
             })
             .catch((error) => {
                 console.error('Error when receiving data:', error);
@@ -75,7 +66,10 @@ const Movie = (props: IMovie) => {
             </div>
             <div className={`${style.cardContent} ${style.left}`}>
                 <h3 className={style.title}>{title}</h3>
-                <p>{year} <span className=''>{type}</span></p>
+                <div className={style.flexRow}>
+                    <p>{year}</p>
+                    <span className=''>{type}</span>
+                </div>
 
                 <button className={`${style.btn} ${style.infoBtn}`} onClick={handleClick} disabled={loading}>
                     {loading ? 'Загрузка...' : 'Подробнее'}

@@ -2,10 +2,7 @@ import style from './style.module.scss'
 
 const Preloader = () => {
     return (
-
-        <div className={style.preloader}>
-
-        </div>
+        <div className={style.preloader}></div>
     )
 }
 

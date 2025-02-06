@@ -1,9 +1,6 @@
-// import React from 'react';
-// import {Movie} from './Movie.js';
 import {Movie} from "../Movie/Movie.tsx";
 import {IMovie} from "../../types/Types.ts";
 import style from './style.module.scss'
-// import PropTypes from "prop-types";
 
 
 interface IMovies {
@@ -15,19 +12,17 @@ const Movies = (props: IMovies) => {
 
     return (
         <div className={`${style.movieList} `}>
-            {movies.length ?
+            {movies.length > 0 && (
                 movies.map((movie) => (
-                    <Movie key={movie.imdbID} {...movie}
-                    />
-                )) : (<h4>Couldn't find anything, or you entered the name incorrectly.</h4>)}
+                    <Movie key={movie.imdbID} {...movie}/>
+                ))
+            )}
+
+            {!movies.length && (
+                <h4>Couldn't find anything, or you entered the name incorrectly.</h4>
+            )}
         </div>
     );
 }
-
-
-// Указываем, что searchMovies — это функция
-// Movies.propTypes = {
-//     searchMovies: PropTypes.func.isRequired,
-// }
 
 export { Movies };

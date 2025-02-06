@@ -1,12 +1,12 @@
-@import "../../styles/globals";
+@use "../../styles/globals";
 
-.nav {
+.headFoot {
   background-color: var(--green);
   width: 100%;
   padding: 16px 0;
 }
 
-.navWrapper {
+.headFootWrapper {
   color: var(--white);
   margin: 0 60px;
 }

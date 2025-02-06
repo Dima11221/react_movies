@@ -9,15 +9,15 @@ import style from './style.module.scss'
 import {Pages} from "../../components/Pages/Pages.tsx";
 
 interface IFilterProps {
-    str: string;
+    query: string;
     filterType: 'all' | 'movie' | 'series' | 'game';
 }
 
 
+const getMovieSelector = ((state: RootState) => state.movies);
+
 const Main = () => {
-    // const [movies, setMovies] = useState<IMovie[]>([]);
-    // const [loading, setLoading] = useState<boolean>(true);
-    const {movies, loading, totalResults} = useSelector((state: RootState) => state.movies);
+    const {movies, loading, totalResults} = useSelector(getMovieSelector);
     const [type, setType] = useState<'all' | 'movie' | 'series' | 'game'>("all");
     const [query, setQuery] = useState<string>("movie");
     const [page, setPage] = useState<number>(1);
@@ -25,54 +25,34 @@ const Main = () => {
     const dispatch = useDispatch<AppDispatch>();
 
 
-
-    // const fetchMovies = (params: IProps) => {
-    //     const {str = 'terminator', filterType = 'all'} = params;
-    //     setLoading(true);
-    //     fetch(`https://www.omdbapi.com/?apikey=90157240&s=${str}${filterType !== 'all' ? `&type=${filterType}` : ''}`, {})
-    //         .then((response) => response.json())
-    //         .then((data: IApiResponse) => {
-    //             setMovies(data.Search || []);
-    //             setLoading(false);
-    //         })
-    //         .catch((error: IApiResponse) => {
-    //             console.log(error);
-    //             setLoading(false);
-    //         });
-    // }
-
-    const searchMovies = ({str, filterType}:IFilterProps) => {
-        setQuery(str)
+    const searchMovies = ({query, filterType}:IFilterProps) => {
+        setQuery(query)
         setType(filterType);
         setPage(1);
-        dispatch(fetchMovies(str, filterType, 1))
-        // fetchMovies({str, filterType});
+        dispatch(fetchMovies({query, type: filterType, page: 1, append: false} ))
     }
 
+
     useEffect(() => {
-        dispatch(fetchMovies(query, type, page, page > 1))
-        // fetchMovies({str: query, filterType: type})
+        dispatch(fetchMovies({query, type, page, append: page > 1
+    }))
     }, [query, type, page, dispatch]);
 
-    // console.log(totalResults)
-    // console.log(page)
-    // console.log(fetchMovies)
-    // console.log("Loading state:", loading);
+
+
     return (
         <main className={style.mainWrapper}>
             <div>
                 <Search searchMovies={searchMovies} type={type} query={query} />
-                {
-                    loading ? (
-                        <Preloader />
-                    ) : (
-                        <>
-                            <Movies movies={movies}/>
-                            <Pages page={page} setPage={setPage} loading={loading} totalResults={totalResults} />
-                        </>
 
-                    )
-                }
+                {loading && (<Preloader />)}
+
+                {!loading && (
+                    <>
+                        <Movies movies={movies}/>
+                        <Pages page={page} setPage={setPage} loading={loading} totalResults={totalResults} />
+                    </>
+                )}
             </div>
         </main>
     );

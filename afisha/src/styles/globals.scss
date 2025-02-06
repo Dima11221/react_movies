@@ -1,5 +1,5 @@
-@import "./normalize";
-@import "./media.scss";
+@use "./normalize";
+@use "./media.scss";
 
 html {
     box-sizing: border-box;
@@ -30,7 +30,6 @@ body {
 /* global */
 
 .container {
-    //max-width: 1440px;
     max-width: 1440px;
     margin: 0 auto;
 }
@@ -43,7 +42,6 @@ body {
 
 .btnReset {
     padding: 0;
-    //border: none;
     background-color: transparent;
     cursor: pointer;
 }
@@ -55,6 +53,13 @@ body {
     justify-content: space-between;
     align-items: center;
     gap: 8px;
+}
+
+.flexRow {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 10px;
 }
 
 :root {

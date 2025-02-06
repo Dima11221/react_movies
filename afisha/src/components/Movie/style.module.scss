@@ -1,4 +1,4 @@
-@import "../../styles/globals";
+@use "../../styles/globals";
 
 .movieCard {
   display: flex;
@@ -53,6 +53,7 @@
 
 .infoBtn {
   margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .detail {
