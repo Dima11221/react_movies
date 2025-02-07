@@ -1,5 +1,13 @@
 @use "../../styles/globals";
 
+.title {
+  transition: 0.3s;
+}
+
+.title:hover {
+  color: var(--blue-color);
+}
+
 .movieCard {
   display: flex;
   flex-direction: column;

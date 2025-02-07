@@ -4,6 +4,7 @@ import {useState} from "react";
 import {AppDispatch, RootState} from "../../store/store.ts";
 import { useDispatch, useSelector } from "react-redux";
 import {fetchMovieDetails} from "../../store/reducers/thunk.ts";
+import {Link} from "react-router-dom";
 
 
 const getSelector = ((state: RootState) => state.movies);
@@ -65,7 +66,14 @@ const Movie = (props: IMovie) => {
 
             </div>
             <div className={`${style.cardContent} ${style.left}`}>
-                <h3 className={style.title}>{title}</h3>
+                <Link
+                    to={`/movie/${id}`}
+                    className={style.title}>
+                    <span>
+                        <h3 className={style.title}>{title}</h3>
+                    </span>
+                </Link>
+
                 <div className={style.flexRow}>
                     <p>{year}</p>
                     <span className=''>{type}</span>
@@ -77,9 +85,7 @@ const Movie = (props: IMovie) => {
 
                 <div className={
                     `${style.movieDetails} 
-                    
                     ${isVisible && `${style.visible}`} 
-                    
                     ${!isVisible && `${style.hidden}`}
                     `}
                 >
@@ -95,11 +101,9 @@ const Movie = (props: IMovie) => {
                         <p>{error}</p>
                     )}
                 </div>
-
-
             </div>
-
-        </div>);
+        </div>
+    );
 }
 
 export { Movie };

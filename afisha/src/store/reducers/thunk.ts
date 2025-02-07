@@ -34,13 +34,43 @@ export const fetchMovieDetails = createAsyncThunk(
     async (id: string, { rejectWithValue }) => {
         try {
             const response = await fetch(`https://www.omdbapi.com/?apikey=90157240&i=${id}&plot=short`);
-            const data:{Response: string, Plot?: string, imdbRating?: string, Rated?: string, Error?: string} = await response.json();
+            const data:{
+                Response: string;
+                Plot?: string;
+                imdbRating?: string;
+                Rated?: string;
+                Title?: string;
+                Year?: string;
+                imdbID?: string;
+                Type?: string;
+                Poster?: string;
+                Error?: string;
+
+                Country?: string;
+                Runtime?: string;
+                Genre?: string;
+                Director?: string;
+                Actors?: string
+                Ratings?: { Source: string, Value: string }[];
+            } = await response.json();
 
             if (data.Response === 'True') {
                 const movieDetails: IMovieDetails ={
+                    Title: data.Title || '',
+                    Year: data.Year || '',
+                    imdbID: data.imdbID || '',
+                    Type: data.Type || '',
+                    Poster: data.Poster || '',
                     Plot: data.Plot || '',
                     imdbRating: data.imdbRating || '',
-                    Rated: data.Rated,
+                    Rated: data.Rated || '',
+
+                    Country: data.Country || '',
+                    Runtime: data.Runtime || '',
+                    Genre: data.Genre || '',
+                    Director: data.Director || '',
+                    Actors: data.Actors || '',
+                    Ratings: data.Ratings || [],
                 };
                 return {id, details: movieDetails};
             } else {

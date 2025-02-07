@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="05de3a02-7eea-46eb-adbf-92d2292249f7" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/afisha/src/components/FilterType/FilterType.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/afisha/src/components/FilterType/style.module.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/afisha/src/components/MovieCard/style.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/afisha/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/afisha/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/afisha/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/afisha/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/afisha/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/afisha/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/afisha/src/components/Movie/Movie.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/afisha/src/components/Movie/Movie.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/afisha/src/components/Movie/style.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/afisha/src/components/Movie/style.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/afisha/src/components/Movies/Movies.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/afisha/src/components/Movies/Movies.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/afisha/src/components/Movies/style.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/afisha/src/components/Movies/style.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/afisha/src/components/Pages/style.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/afisha/src/components/Pages/style.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/afisha/src/components/Preloader/Preloader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/afisha/src/components/Preloader/Preloader.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/afisha/src/components/Search/Search.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/afisha/src/components/Search/Search.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/afisha/src/components/Search/style.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/afisha/src/components/Search/style.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/afisha/src/layout/Footer/Footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/afisha/src/layout/Footer/Footer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/afisha/src/layout/Footer/style.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/afisha/src/layout/Footer/style.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/afisha/src/layout/Header/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/afisha/src/layout/Header/Header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/afisha/src/layout/Header/style.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/afisha/src/layout/Header/style.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/afisha/src/layout/Main/Main.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/afisha/src/layout/Main/Main.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/afisha/src/layout/Main/style.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/afisha/src/layout/Main/style.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/afisha/src/main.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/afisha/src/main.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/afisha/src/store/reducers/movieReducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/afisha/src/store/reducers/movieReducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/afisha/src/store/reducers/selector.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/afisha/src/store/reducers/thunk.ts" beforeDir="false" afterPath="$PROJECT_DIR$/afisha/src/store/reducers/thunk.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/afisha/src/store/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/afisha/src/store/store.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/afisha/src/styles/App.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/afisha/src/styles/globals.scss" beforeDir="false" afterPath="$PROJECT_DIR$/afisha/src/styles/globals.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/afisha/src/styles/media.scss" beforeDir="false" afterPath="$PROJECT_DIR$/afisha/src/styles/media.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/afisha/src/types/Types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/afisha/src/types/Types.ts" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/afisha" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="2s6vjJfW32AsZdUMtGl7xHApEK6" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Dima/Desktop/WEB/Курс React/react_movies&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;npm.build.executor&quot;: &quot;Run&quot;,
+    &quot;npm.deploy.executor&quot;: &quot;Run&quot;,
+    &quot;npm.dev.executor&quot;: &quot;Run&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\Dima\\Desktop\\WEB\\Курс React\\react_movies\\afisha\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Dima\Desktop\WEB\Курс React\react_movies\afisha\src\styles" />
+      <recent name="C:\Users\Dima\Desktop\WEB\Курс React\react_movies\afisha\src" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Dima\Desktop\WEB\Курс React\react_movies\afisha\src\components\MovieCard" />
+      <recent name="C:\Users\Dima\Desktop\WEB\Курс React\react_movies\afisha\src\components\Preloader" />
+      <recent name="C:\Users\Dima\Desktop\WEB\Курс React\react_movies\afisha\src\layout\Footer" />
+      <recent name="C:\Users\Dima\Desktop\WEB\Курс React\react_movies\afisha\src\components\Movie" />
+      <recent name="C:\Users\Dima\Desktop\WEB\Курс React\react_movies\afisha\src\components\Search" />
+    </key>
+  </component>
+  <component name="RunManager" selected="npm.build">
+    <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/afisha/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="build" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="deploy" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/afisha/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="deploy" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/afisha/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.build" />
+        <item itemvalue="npm.dev" />
+        <item itemvalue="npm.deploy" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-822845ee3bb5-JavaScript-WS-243.23654.157" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="05de3a02-7eea-46eb-adbf-92d2292249f7" name="Changes" comment="" />
+      <created>1737788973176</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1737788973176</updated>
+      <workItem from="1737788974860" duration="16207000" />
+      <workItem from="1737877681335" duration="7216000" />
+      <workItem from="1738005010382" duration="10325000" />
+      <workItem from="1738083049599" duration="1161000" />
+      <workItem from="1738085140169" duration="640000" />
+      <workItem from="1738088677640" duration="1282000" />
+      <workItem from="1738089975634" duration="5458000" />
+      <workItem from="1738095562372" duration="3000" />
+      <workItem from="1738173607502" duration="9305000" />
+      <workItem from="1738265058927" duration="6094000" />
+      <workItem from="1738351924662" duration="8237000" />
+      <workItem from="1738391938476" duration="92000" />
+      <workItem from="1738510886671" duration="13518000" />
+      <workItem from="1738602718402" duration="691000" />
+      <workItem from="1738605100257" duration="7730000" />
+      <workItem from="1738614413537" duration="713000" />
+      <workItem from="1738615137658" duration="239000" />
+      <workItem from="1738646508792" duration="618000" />
+      <workItem from="1738674354796" duration="16564000" />
+      <workItem from="1738758469346" duration="11786000" />
+      <workItem from="1738782346078" duration="4000" />
+      <workItem from="1738846937846" duration="3896000" />
+      <workItem from="1738865125970" duration="12591000" />
+      <workItem from="1738879116974" duration="293000" />
+      <workItem from="1738927848709" duration="571000" />
+      <workItem from="1738928428723" duration="2995000" />
+      <workItem from="1738931469490" duration="2152000" />
+      <workItem from="1738938537281" duration="18000" />
+      <workItem from="1738938557120" duration="1439000" />
+      <workItem from="1738953398197" duration="15891000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

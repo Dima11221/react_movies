@@ -13,7 +13,6 @@ interface IFilter {
     type: 'all' | 'movie' | 'series' | 'game';
 }
 
-
 const getMovieSelector = ((state: RootState) => state.movies);
 
 const Main = () => {
