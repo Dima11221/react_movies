@@ -10,7 +10,7 @@ import {Pages} from "../../components/Pages/Pages.tsx";
 
 interface IFilter {
     query: string;
-    filterType: 'all' | 'movie' | 'series' | 'game';
+    type: 'all' | 'movie' | 'series' | 'game';
 }
 
 
@@ -18,18 +18,18 @@ const getMovieSelector = ((state: RootState) => state.movies);
 
 const Main = () => {
     const {movies, loading, totalResults} = useSelector(getMovieSelector);
-    const [type, setType] = useState<'all' | 'movie' | 'series' | 'game'>("all");
+    const [type, setType] = useState<IFilter['type']>("all");
     const [query, setQuery] = useState<string>("movie");
     const [page, setPage] = useState<number>(1);
 
     const dispatch = useDispatch<AppDispatch>();
 
 
-    const searchMovies = ({query, filterType}:IFilter) => {
+    const searchMovies = ({query, type}:IFilter) => {
         setQuery(query)
-        setType(filterType);
+        setType(type);
         setPage(1);
-        dispatch(fetchMovies({query, type: filterType, page: 1, append: false} ))
+        dispatch(fetchMovies({query, type, page: 1, append: false} ))
     }
 
 

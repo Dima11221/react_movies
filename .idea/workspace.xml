@@ -7,6 +7,7 @@
     <list default="true" id="05de3a02-7eea-46eb-adbf-92d2292249f7" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/afisha/src/components/FilterType/FilterType.tsx" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/afisha/src/components/FilterType/style.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/afisha/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/afisha/src/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/afisha/src/components/Movie/Movie.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/afisha/src/components/Movie/Movie.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/afisha/src/components/Movie/style.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/afisha/src/components/Movie/style.module.scss" afterDir="false" />
@@ -166,7 +167,8 @@
       <workItem from="1738865125970" duration="12591000" />
       <workItem from="1738879116974" duration="293000" />
       <workItem from="1738927848709" duration="571000" />
-      <workItem from="1738928428723" duration="1110000" />
+      <workItem from="1738928428723" duration="2995000" />
+      <workItem from="1738931469490" duration="580000" />
     </task>
     <servers />
   </component>
