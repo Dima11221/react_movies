@@ -32,7 +32,7 @@ const Search = ({searchMovies, query, type: parentType}: ISearch) => {
             <div className={style.inputField}>
                 <input
                     className={`${style.inputStyle}`}
-                    placeholder="Search"
+                    placeholder="Название фильма... (Iron man)"
                     type="search"
                     value={search || ''}
                     onChange={(e) =>
