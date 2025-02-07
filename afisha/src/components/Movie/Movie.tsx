@@ -77,9 +77,12 @@ const Movie = (props: IMovie) => {
 
                 <div className={
                     `${style.movieDetails} 
+                    
                     ${isVisible && `${style.visible}`} 
+                    
                     ${!isVisible && `${style.hidden}`}
-                    `}>
+                    `}
+                >
 
                     {details && (
                         <div className={style.flex}>
@@ -88,7 +91,9 @@ const Movie = (props: IMovie) => {
                             <p className={style.detail}>Сюжет: {details.Plot ?? 'Ничего не найдено...'}</p>
                         </div>
                     )}
-                    {error && (<p>{error}</p>)}
+                    {error && (
+                        <p>{error}</p>
+                    )}
                 </div>
 
 

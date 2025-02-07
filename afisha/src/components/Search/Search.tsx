@@ -50,6 +50,7 @@ const Search = ({searchMovies, query, type: parentType}: ISearch) => {
                 </button>
 
                 <FilterType type={type} handleFilter={handleFilter} />
+
             </div>
         </div>
     );

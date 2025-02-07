@@ -8,7 +8,7 @@ import {AppDispatch, RootState} from "../../store/store.ts";
 import style from './style.module.scss'
 import {Pages} from "../../components/Pages/Pages.tsx";
 
-interface IFilterProps {
+interface IFilter {
     query: string;
     filterType: 'all' | 'movie' | 'series' | 'game';
 }
@@ -25,7 +25,7 @@ const Main = () => {
     const dispatch = useDispatch<AppDispatch>();
 
 
-    const searchMovies = ({query, filterType}:IFilterProps) => {
+    const searchMovies = ({query, filterType}:IFilter) => {
         setQuery(query)
         setType(filterType);
         setPage(1);
