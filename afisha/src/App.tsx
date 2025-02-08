@@ -10,18 +10,18 @@ function App() {
 
     return (
 
-        <HashRouter>
-            <div>
-                <Header title="OMDb Movies" />
+    <HashRouter>
+        <div>
+            <Header title="OMDb Movies" />
 
-                <Routes>
-                    <Route path="/" element={<Main />} />
-                    <Route path="/movie/:imdbID" element={<MovieCard />} />
-                </Routes>
+            <Routes>
+                <Route path="/" element={<Main />} />
+                <Route path="/movie/:imdbID" element={<MovieCard />} />
+            </Routes>
 
-                <Footer text="GitHub page" />
-            </div>
-        </HashRouter>
+            <Footer text="GitHub page" />
+        </div>
+    </HashRouter>
 
     )
 }

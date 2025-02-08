@@ -10,3 +10,11 @@
   color: var(--white);
   margin: 0 60px;
 }
+
+.headLink {
+  transition: 0.3s;
+}
+
+.headLink:hover {
+  color: var(--blue-color);
+}
